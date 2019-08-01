@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% block title_block %} {{ post.title }} {% endblock %}
+    {% block content %}
+        <h1>{{ post.title }}</h1>
+        <p>published on {{ post.publish }} by {{ post.author|title }}</p>
+        {{ post.Description|linebreaks }}
+        <img  src ="{{ post.Image }}"> <br><br>
+        {% with comments.count as comments_count %}
+        <h2>{{ comments_count }}comment{{ comments_count|pluralize }}</h2>
+        {% endwith %}
+        {% if comments %}
+            {% for comment in comments %}
+                <p id="ch">comment{{ forloop.counter }} by {{ counter.name }} on {{ comment.created }}</p>
+                <div class="cb">{{ comment.Description|linebreaks }}</div>
+            {% endfor %}
+            {% else %}
+                <p>There is no comments Yet</p>
+        {% endif %}
+        {% if csubmit %}
+            <h2>Your comment Added Succesfully</h2>
+            {% else %}
+            <form method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" CLASS="btn btn-primary btn-lg" name="" value="submit comment">
+            </form>
+        {% endif %}
+
+    {% endblock %}

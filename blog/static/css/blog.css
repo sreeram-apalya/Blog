@@ -1,0 +1,27 @@
+.content{
+    width:60%;
+    float:left;
+    padding:0 0 0 30px;
+
+}
+.sidebar{
+    width:40%;
+    float:right;
+    padding:10px;
+    background: aqua;
+}
+h1{
+    text-align:center;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 10px;
+}
+
+#date {
+    color: blue;
+    font-size: 12px;
+}
+#ch{
+    color:blue;
+    font-size: 12px;
+    border-bottom: 2px solid black;
+}
